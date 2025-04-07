@@ -127,7 +127,8 @@ app.use(errorHandler);
 //Sends an array of object ([{moyenne_avg: value}])
 app.get('/etudiants/moyenne/avg', async (req, res, next) => {
     try {
-        const result = await pool.query('SELECT SUM(moyenne) / COUNT(moyenne) AS "moyenne_avg" FROM Etudiant');
+        // const result = await pool.query('SELECT SUM(moyenne) / COUNT(moyenne) AS "moyenne_avg" FROM Etudiant');
+        const result = await pool.query('SELECT AVG(moyenne) AS "moyenne_avg" FROM Etudiant');
         res.status(200).json(result.rows);
     } catch (error) {
         next(error);
