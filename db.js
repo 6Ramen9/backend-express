@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+const { Pool } = require('pg');//package for PostgreSQL
 
 const pool = new Pool({
     user: "node_dev",
