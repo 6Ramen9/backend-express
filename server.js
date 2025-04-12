@@ -101,7 +101,7 @@ app.use(errorHandler);
 //Sends an array of object ([{moyenne_minimum: value}])
 app.get('/etudiants/moyenne/min', async (req, res, next) => {
     try {
-        const result = await pool.query('SELECT MIN(moyenne) AS "moyenne_minimum" FROM Etudiant');
+        const result = await pool.query('SELECT MIN(moyenne) AS "moyenne_min" FROM Etudiant');
         res.status(200).json(result.rows);
     } catch (error) {
         next(error);
@@ -114,7 +114,7 @@ app.use(errorHandler);
 //Sends an array of object ([{moyenne_maximum: value}])
 app.get('/etudiants/moyenne/max', async (req, res, next) => {
     try {
-        const result = await pool.query('SELECT MAX(moyenne) AS "moyenne_maximum" FROM Etudiant');
+        const result = await pool.query('SELECT MAX(moyenne) AS "moyenne_max" FROM Etudiant');
         res.status(200).json(result.rows);
     } catch (error) {
         next(error);
